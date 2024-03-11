@@ -1,0 +1,1 @@
+export const CHAT_URL = 'https://chat-ifgzb74hna-uc.a.run.app';
