@@ -1,8 +1,7 @@
 <template>
     <div class="content">
         <div class="content-wrap">
-            <img src="../../assets/result/unadd.png" class="content-unadd"/>
-            <img src="../../assets/result/added.png" class="content-unadd"/>
+            <img src="../../assets/mylist/close.svg" class="content-close"/>
             <div class="content-title">Hight quality or think through give more suggestion</div>
             <div class="content-info">
                 <div class="content-sign">US9496517 B1</div>
@@ -20,10 +19,14 @@
 
 <style>
 .content {
-    padding: 20px 50px 0 100px;
+    padding: 20px 50px 0 20px;
     color: #000;
     .content-wrap {
         position: relative;
+    }
+    .content-close {
+        position: absolute;
+        right: 0px;
     }
     .content-unadd, .content-added {
         width: 24px;

@@ -35,31 +35,31 @@
       }
     },
     setup() {
-        const options = ref([
-            {
-                value: 'Relevance',
-                label: 'Relevance',
-            },
-            {
-                value: 'Latest',
-                label: 'Latest',
-            },
-            {
-                value: 'Oldest',
-                label: 'Oldest',
-            },
-        ]);
-        const inventor = ref('');
-        const assignee = ref('');
-        const key = ref('');
-        const sortVal = ref(null);
-        return {
-            inventor,
-            assignee,
-            key,
-            sortVal,
-            options
-        };
+      const options = ref([
+          {
+              value: 'Relevance',
+              label: 'Relevance',
+          },
+          {
+              value: 'Latest',
+              label: 'Latest',
+          },
+          {
+              value: 'Oldest',
+              label: 'Oldest',
+          },
+      ]);
+      const inventor = ref('');
+      const assignee = ref('');
+      const key = ref('');
+      const sortVal = ref(null);
+      return {
+          inventor,
+          assignee,
+          key,
+          sortVal,
+          options
+      };
     },
     methods: {
         rangeChange(date, dateRange) {

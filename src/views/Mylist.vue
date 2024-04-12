@@ -1,38 +1,29 @@
 <template>
   <div class="result">
-   <Head/>
+    <Head/>
     <div class="result-content">
       <img src="../assets/result/back.png"/>
-      <span class="result-doc">Doc title. docx</span>
-      <div class="result-title">Search Results</div>
+      <span class="result-doc">Back</span>
+      <div class="result-title">MyList</div>
     </div>
     <Content/>
   </div>
   <div class="chat-panel">
     <div class="chat-title">AI Assistant</div>
-    <a-tabs v-model:activeKey="activeKey" class="chat-tabs" centered>
-      <a-tab-pane key="1" tab="chat">
-        <Chat/>
-      </a-tab-pane>
-      <a-tab-pane key="2" tab="filter">
-        <Filter/>
-      </a-tab-pane>
-    </a-tabs>
+    <Chat :isShowSelect="false"/>
   </div>
 </template>
 <script  lang="ts">
-import Head from '../components/result/Head.vue';
-import Content from '../components/result/Content.vue';
+import Head from '../components/mylist/Head.vue';
+import Content from '../components/mylist/Content.vue';
 import Chat from '../components/result/Chat.vue';
-import Filter from '../components/result/Filter.vue';
 import { ref } from 'vue';
 
 export default {
   components: {
     Head,
     Content,
-    Chat,
-    Filter
+    Chat
   },
   setup() {
     const activeKey = ref('1');
@@ -40,19 +31,11 @@ export default {
       activeKey
     };
   },
+
 }
 </script>
 
 <style>
-.ant-tabs-nav-list {
-  width: 100%;
-  display: flex;
-  justify-content: space-around;
-}
-:where(.css-dev-only-do-not-override-1hsjdkk).ant-tabs .ant-tabs-content {
-  position: static;
-}
-
 .ant-tabs-tab {
   font-size: 20px !important;
   font-weight: 500;
@@ -97,6 +80,7 @@ export default {
   .chat-title {
     font-size: 20px;
     font-weight: 600;
+    margin-left: 6%;
   }
 }
 </style>

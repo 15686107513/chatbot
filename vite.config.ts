@@ -21,6 +21,7 @@ export default defineConfig({
       input: {
         home: resolve(__dirname, 'index.html'),
         result: resolve(__dirname, 'result/index.html'),
+        mylist: resolve(__dirname, 'mylist/index.html'),
       }
     }
   }

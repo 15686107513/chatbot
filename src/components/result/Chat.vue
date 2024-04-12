@@ -2,22 +2,21 @@
   <div class="chat">
     <template v-for="(message, index) in messages" :key="index">
       <div class="chat-content"  v-if="message.role==='user'">
-          <img src="../../assets/result/avatar.png" class="chat-img"/>
-          <div class="detail ai-detail">{{ message.content }}</div>
+        <img src="../../assets/result/avatar.png" class="chat-img"/>
+        <div class="detail ai-detail">{{ message.content }}</div>
       </div>
-
       <div class="chat-content" v-if="loading && index === messages.length - 1">
         <img src="../../assets/result/AI.png" class="chat-img"/>
         <div class="detail ai-detail">Generating answer...</div>
       </div>
-
       <div class="chat-content" v-else-if="message.role==='assistant'">
         <img src="../../assets/result/AI.png" class="chat-img"/>
         <div class="detail">{{ message.content }}</div>
       </div>
     </template>
+
     <div class="chat-textarea">
-        <div class="chat-selected">Selected <span class="chat-selected-word">High quality or think through give  ...</span></div>
+        <div v-if="isShowSelect" class="chat-selected">Selected <span class="chat-selected-word">High quality or think through give  ...</span></div>
         <a-textarea
             v-model:value="textVal"
             placeholder="Tell me what you want to do with the selected content"
@@ -45,6 +44,11 @@ export default {
       intervalId: null,
       thread: '',
       prompt: ''
+    }
+  },
+  props:  {
+    isShowSelect: {
+      default: true,
     }
   },
   setup() {
@@ -93,23 +97,23 @@ export default {
   width: 100%;
 }
 
-:where(.css-dev-only-do-not-override-1hsjdkk).ant-input:focus,
-:where(.css-dev-only-do-not-override-1hsjdkk).ant-input:hover,
-:where(.css-dev-only-do-not-override-1hsjdkk).ant-input-focused {
-    border-color: #B2E2F9;
-    box-shadow: 0 0 0 1px #B2E2F9;
-}
-.chat {
-  padding: 0 10px calc(100vh - 114px) 10px;
-  :where(.css-dev-only-do-not-override-1hsjdkk).ant-input {
-    border-color: #B2E2F9;
-    border-radius: 18px 18px 0 0;
-}
+  :where(.css-dev-only-do-not-override-1hsjdkk).ant-input:focus,
+  :where(.css-dev-only-do-not-override-1hsjdkk).ant-input:hover,
+  :where(.css-dev-only-do-not-override-1hsjdkk).ant-input-focused {
+      border-color: #B2E2F9;
+      box-shadow: 0 0 0 1px #B2E2F9;
+  }
+  .chat {
+    width: 100%;
+    :where(.css-dev-only-do-not-override-1hsjdkk).ant-input {
+      border-color: #B2E2F9;
+      border-radius: 18px 18px 0 0;
+  }
   .chat-textarea {
     position: absolute;
-    bottom: 30px;
-    width: 90%;
-    margin-left: 2%;
+    width: 92%;
+    bottom: 20px;
+    right: 4%;
   }
   .chat-content {
     display: flex;
@@ -139,7 +143,6 @@ export default {
   }
   .chat-selected-word {
     color: #000;
-
   }
   .chat-word {
     color: #0A5171;
@@ -167,7 +170,7 @@ export default {
     width: 19px;
     height: 16px;
     position: absolute;
-    right: 20px;
+    right: 15px;
   }
 }
-</style>./Chat.vue
+</style>
